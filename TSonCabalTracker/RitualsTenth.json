@@ -1,0 +1,29 @@
+{
+  "rituals": [
+    {
+      "ritual": "Weaver of Fates",
+      "cost": 2,
+      "description": "Use this Ritual at the start of any phase. Once during that phase, when a saving throw is failed for a friendly THOUSAND SONS model whose unit is within 18 inches of this PSYKER, you can re-roll that saving throw."
+    },
+    {
+      "ritual": "Temporal Surge",
+      "cost": 5,
+      "description": "Use this Ritual at the start of your Shooting phase. Select one friendly THOUSAND SONS unit within 18 inches of this PSYKER; unless that unit is within Engagement Range of one or more enemy units, it can make a Normal move. If it does, that unit is not eligible to declare a charge this turn."
+    },
+    {
+      "ritual": "Echoes from The Warp",
+      "cost": 6,
+      "description": "Use this Ritual at the start of any phase. Once this phase, you can select this PSYKER’s unit as the target of a Stratagem for 0CP, even if you have already used that Stratagem this phase."
+    },
+    {
+      "ritual": "Doombolt",
+      "cost": 7,
+      "description": "Use this Ritual at the start of your Shooting phase. Select one enemy unit within 18 inches of and visible to this PSYKER and roll one D6: on a 1, that enemy unit suffers D3 mortal wounds; on a 2-5, it suffers D3+3 mortal wounds; on a 6, it suffers D3+6 mortal wounds."
+    },
+    {
+      "ritual": "Twist of Fate",
+      "cost": 9,
+      "description": "Use this Ritual at the start of any phase. Select one enemy unit within 18 inches of and visible to this PSYKER; until the end of the phase, armour saving throws cannot be made for models in that unit."
+    }
+  ]
+}
