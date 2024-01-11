@@ -6,14 +6,26 @@
 //
 
 import Foundation
+import CoreData
 
 class ListViewModel: ObservableObject {
     
     @Published var items: [UnitModel] = []
     @Published var cabalTotalPoints: Int = 0
+    let container: NSPersistentContainer
+    let dataFileName: String = "UnitData"
 //    @Published var unitTypes: Unit
     
     init() {
+        container = NSPersistentContainer(name: dataFileName)
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("Error loading Core Data. \(error)")
+            } else {
+                print("Core Data Loaded.")
+            }
+        }
+        
         getItems()
         getPointTotal()
     }
@@ -43,7 +55,7 @@ class ListViewModel: ObservableObject {
         }
     }
     
-    func addItem(model: Unit, nickname: String?) {
+    func addItem(model: UnitEnum, nickname: String?) {
         var tempVal: Int
         var tempTitle: String
         var newUnit: UnitModel

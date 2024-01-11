@@ -10,7 +10,7 @@ import SwiftUI
 struct AddItemView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
-    @State var selectedUnit: Unit = Unit.rubric
+    @State var selectedUnit: UnitEnum = UnitEnum.rubric
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var nickname: String = ""
     
@@ -20,7 +20,7 @@ struct AddItemView: View {
                 Text("Pick a Model:")
                     .underline()
                 Picker("Which Unit?", selection: $selectedUnit, content: {
-                    ForEach(Unit.allCases) { item in
+                    ForEach(UnitEnum.allCases) { item in
                         Text("\(item.rawValue)")
                     }
                 })

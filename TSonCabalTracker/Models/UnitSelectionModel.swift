@@ -13,7 +13,7 @@ struct Model: Hashable, Identifiable {
     var id: String
 }
 
-enum Unit: String, Identifiable, CaseIterable {
+enum UnitEnum: String, Identifiable, CaseIterable {
     case magnus = "Magnus the Red"
     case ahriman = "Ahriman"
     case exsorc = "Exhalted Sorcerer"
