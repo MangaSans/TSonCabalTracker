@@ -9,9 +9,14 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     
-    @Published var items: [UnitModel] = []
+    @Published var items: [UnitModel] = [] {
+        didSet {
+            saveItems()
+        }
+    }
     @Published var cabalTotalPoints: Int = 0
 //    @Published var unitTypes: Unit
+    let itemsKey: String = "items_list"
     
     init() {
         getItems()
@@ -19,13 +24,20 @@ class ListViewModel: ObservableObject {
     }
     
     func getItems() {
-        let newItems = [
-            UnitModel(title: "Magnus the Red", value: 4, nickname: nil),
-            UnitModel(title: "Ahriman", value: 3, nickname: nil),
-            UnitModel(title: "Exhalted Sorcerer", value: 3, nickname: "Tiny Tim")
-        ]
-        items.append(contentsOf: newItems)
+//        let newItems = [
+//            UnitModel(title: "Magnus the Red", value: 4, nickname: nil),
+//            UnitModel(title: "Ahriman", value: 3, nickname: nil),
+//            UnitModel(title: "Exhalted Sorcerer", value: 3, nickname: "Tiny Tim")
+//        ]
+//        items.append(contentsOf: newItems)
         
+        guard
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            let savedItems = try? JSONDecoder().decode([UnitModel].self, from: data)
+        else {
+            return
+        }
+        self.items = savedItems
         getPointTotal()
     }
     
@@ -43,7 +55,7 @@ class ListViewModel: ObservableObject {
         }
     }
     
-    func addItem(model: Unit, nickname: String?) {
+    func addItem(model: UnitEnum, nickname: String?) {
         var tempVal: Int
         var tempTitle: String
         var newUnit: UnitModel
@@ -105,5 +117,11 @@ class ListViewModel: ObservableObject {
     func deleteItem(indexSet: IndexSet) {
         items.remove(atOffsets: indexSet)
         getPointTotal()
+    }
+    
+    func saveItems() {
+        if let encodedData = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encodedData, forKey: itemsKey)
+        }
     }
 }
