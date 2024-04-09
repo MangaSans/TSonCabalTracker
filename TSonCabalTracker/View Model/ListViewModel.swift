@@ -10,8 +10,12 @@ import CoreData
 
 class ListViewModel: ObservableObject {
     
-    @Published var items: [UnitModel] = []
+    @Published var tsonsUnits: [UnitData] = []
     @Published var cabalTotalPoints: Int = 0
+    @Published var cabalBonusPoints: Int = 0
+    @Published var helbruteActive = false
+    @Published var helbruteBabble: Int = 0
+    @Published var tzangorTrophy: Int = 0
     let container: NSPersistentContainer
     let dataFileName: String = "UnitData"
 //    @Published var unitTypes: Unit
@@ -27,38 +31,51 @@ class ListViewModel: ObservableObject {
         }
         
         getItems()
-        getPointTotal()
     }
     
     func getItems() {
-        let newItems = [
-            UnitModel(title: "Magnus the Red", value: 4, nickname: nil),
-            UnitModel(title: "Ahriman", value: 3, nickname: nil),
-            UnitModel(title: "Exhalted Sorcerer", value: 3, nickname: "Tiny Tim")
-        ]
-        items.append(contentsOf: newItems)
+
+        let request = NSFetchRequest<UnitData>(entityName: dataFileName)
+        
+        do {
+            try tsonsUnits = container.viewContext.fetch(request)
+        } catch let error {
+            print("Error loading data. \(error)")
+        }
         
         getPointTotal()
     }
     
-    func getPointTotal() {
-        cabalTotalPoints = 0
-        for values in items {
-            cabalTotalPoints += values.isAlive ? values.value : 0
+    func saveUnits() {
+        do {
+            try container.viewContext.save()
+            getItems()
+        } catch let error {
+            print("Error saving data. \(error)")
         }
     }
     
-    func updateItem(item: UnitModel) {
-        if let index = items.firstIndex(where: {$0.id == item.id}) {
-            items[index] = item.updateAlive()
-            getPointTotal()
+    func getPointTotal() {
+        cabalTotalPoints = 0
+        for values in tsonsUnits {
+            cabalTotalPoints += values.isAlive ? Int(values.pointValue) : 0
         }
+        getBonusPointsTotal()
+    }
+        
+    func updateItem(item: UnitData) {
+//        if let index = tsonsUnits.firstIndex(where: {$0.id == item.id}) {
+//            item.isAlive = item.isAlive ? false : true
+        item.isAlive = !item.isAlive
+//            getPointTotal()
+            saveUnits()
+//        }
     }
     
     func addItem(model: UnitEnum, nickname: String?) {
         var tempVal: Int
         var tempTitle: String
-        var newUnit: UnitModel
+//        var newUnit: UnitData
         
         //MARK: Model Cabal Points Values
         switch model {
@@ -103,9 +120,15 @@ class ListViewModel: ObservableObject {
             tempVal = 1
         }
         
-        newUnit = UnitModel(title: tempTitle, value: tempVal, nickname: nickname)
-        items.append(newUnit)
-        getPointTotal()
+//        newUnit = UnitModel(title: tempTitle, value: tempVal, nickname: nickname)
+        let newUnit = UnitData(context: container.viewContext)
+        newUnit.unitType = tempTitle
+        newUnit.isAlive = true
+        newUnit.nickname = nickname
+        newUnit.pointValue = Int16(tempVal)
+//        items.append(newUnit)
+//        getPointTotal()
+        saveUnits()
     }
 
 //    func addItem(name: String, value: Int, nickname: String?) {
@@ -115,7 +138,33 @@ class ListViewModel: ObservableObject {
 //    }
     
     func deleteItem(indexSet: IndexSet) {
-        items.remove(atOffsets: indexSet)
-        getPointTotal()
+        guard let index = indexSet.first else { return }
+        let entity = tsonsUnits[index]
+        container.viewContext.delete(entity)
+        saveUnits()
+    }
+    
+    func newGame() {
+        for units in tsonsUnits {
+            units.isAlive = true
+        }
+        resetBonusPoints()
+        saveUnits()
+    }
+    
+    func resetBonusPoints() {
+        tzangorTrophy = 0; helbruteBabble = 0; cabalBonusPoints = 0
+    }
+    
+    func getBonusPointsTotal() {
+        cabalBonusPoints = 0
+        cabalBonusPoints = tzangorTrophy + helbruteBabble
+    }
+    
+    func clearArmy() {
+        for units in tsonsUnits {
+            container.viewContext.delete(units)
+        }
+        saveUnits()
     }
 }

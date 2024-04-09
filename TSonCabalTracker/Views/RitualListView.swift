@@ -13,35 +13,63 @@ struct RitualListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 HStack {
-                    Text("Cabal Points: ")
-                        .font(.headline)
-                        .foregroundColor(.accentColor)
-                    Text("\(listViewModel.cabalTotalPoints)")
-                        .font(.headline)
+                    VStack {
+                        HStack {
+                            Text("Cabal Points: ")
+                                .font(.headline)
+                                .foregroundColor(.accentColor)
+                            Text(listViewModel.cabalBonusPoints > 0 ?
+                                 "\(listViewModel.cabalTotalPoints) + \(listViewModel.cabalBonusPoints)"
+                                 : "\(listViewModel.cabalTotalPoints)")
+                            .font(.headline)
+                        }
+                        HStack {
+                            Text("Ritual Cost: ")
+                                .font(.headline)
+                                .foregroundColor(.accentColor)
+                            Text("\(ritualListViewModel.ritualCostTotal)")
+                        }
+                        .padding()
+                    }
+                    ZStack {
+                        
+                        Button(action: {
+//                            ritualListViewModel.newTurn()
+                        }, label: {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+                                Text("Reset")
+                                    .bold()
+                                    .foregroundStyle(Color.white)
+                            }
+                            
+                        })
+                    }
                 }
-                .padding()
-                
                 List {
                     ForEach(ritualListViewModel.rituals, id: \.self) { item in
                         RitualItemView(item: item)
+                            .onTapGesture {
+//                                ritualListViewModel.selectedRitual(item: item)
+                            }
                     }
                 }
+                .padding(.bottom)
             }
-        }
-        .navigationTitle("Cabalistic Rituals")
-        .padding(16)
-        Spacer()
+//        }
+//        .navigationTitle("Cabalistic Rituals")
     }
 }
 
 struct CabalListView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
+//        NavigationStack {
             RitualListView()
-        }
+//        }
         .environmentObject(RitualListViewModel())
         .environmentObject(ListViewModel())
     }

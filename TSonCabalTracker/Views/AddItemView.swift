@@ -56,7 +56,7 @@ struct AddItemView: View {
         }
         .navigationTitle("Add a Unit")
         .padding(16)
-        Spacer()
+//        Spacer()
     }
     
     func saveButtonPressed() {

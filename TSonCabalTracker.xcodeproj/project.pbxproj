@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1B1404A22B14100C008F8A0F /* RitualsTenth.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1404A12B14100C008F8A0F /* RitualsTenth.json */; };
 		1B1C31102B23A68900755650 /* UnitData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C310E2B23A68900755650 /* UnitData.xcdatamodeld */; };
+		1B27EFBB2B9555F700230DF7 /* BottomBarViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27EFBA2B9555F700230DF7 /* BottomBarViewer.swift */; };
+		1B27EFBD2B997F1500230DF7 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27EFBC2B997F1500230DF7 /* SideMenuView.swift */; };
+		1B6F82372BAF69040013D292 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6F82362BAF69040013D292 /* SettingsView.swift */; };
 		1B7B112429A95F3F00BC977C /* TSonCabalTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B112329A95F3F00BC977C /* TSonCabalTrackerApp.swift */; };
 		1B7B112629A95F3F00BC977C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B112529A95F3F00BC977C /* ListView.swift */; };
 		1B7B112829A95F4000BC977C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B112729A95F4000BC977C /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 /* Begin PBXFileReference section */
 		1B1404A12B14100C008F8A0F /* RitualsTenth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RitualsTenth.json; sourceTree = "<group>"; };
 		1B1C310F2B23A68900755650 /* UnitData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnitData.xcdatamodel; sourceTree = "<group>"; };
+		1B27EFBA2B9555F700230DF7 /* BottomBarViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewer.swift; sourceTree = "<group>"; };
+		1B27EFBC2B997F1500230DF7 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		1B6F82362BAF69040013D292 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1B7B112029A95F3F00BC977C /* TSonCabalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSonCabalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7B112329A95F3F00BC977C /* TSonCabalTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSonCabalTrackerApp.swift; sourceTree = "<group>"; };
 		1B7B112529A95F3F00BC977C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				1B7B115229A9653D00BC977C /* AddItemView.swift */,
 				1BDC76FF29AC3AE80005949B /* RitualListView.swift */,
 				1BDC770329AD96540005949B /* RitualItemView.swift */,
+				1B27EFBA2B9555F700230DF7 /* BottomBarViewer.swift */,
+				1B27EFBC2B997F1500230DF7 /* SideMenuView.swift */,
+				1B6F82362BAF69040013D292 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,12 +332,15 @@
 				1BDC770029AC3AE80005949B /* RitualListView.swift in Sources */,
 				1B7B115929A9AFF000BC977C /* UnitSelectionModel.swift in Sources */,
 				1B1C31102B23A68900755650 /* UnitData.xcdatamodeld in Sources */,
+				1B27EFBB2B9555F700230DF7 /* BottomBarViewer.swift in Sources */,
 				1B7B115529A9663400BC977C /* UnitModel.swift in Sources */,
 				1B7B115329A9653D00BC977C /* AddItemView.swift in Sources */,
 				1BDC770629B029130005949B /* RitualListViewModel.swift in Sources */,
 				1B7B115729A984DA00BC977C /* ListViewModel.swift in Sources */,
+				1B6F82372BAF69040013D292 /* SettingsView.swift in Sources */,
 				1B7B115129A963F000BC977C /* ListItemView.swift in Sources */,
 				1B7B112629A95F3F00BC977C /* ListView.swift in Sources */,
+				1B27EFBD2B997F1500230DF7 /* SideMenuView.swift in Sources */,
 				1B7B112429A95F3F00BC977C /* TSonCabalTrackerApp.swift in Sources */,
 				1BDC770229AC7BAC0005949B /* RitualModel.swift in Sources */,
 			);
@@ -496,11 +508,13 @@
 				DEVELOPMENT_TEAM = UCY4FM8G36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tizcan Abacus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,11 +539,13 @@
 				DEVELOPMENT_TEAM = UCY4FM8G36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tizcan Abacus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

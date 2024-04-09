@@ -9,13 +9,17 @@ import Foundation
 
 
 class RitualListViewModel: ObservableObject {
+    
     @Published var rituals: [RitualModel] = []
+    @Published var isSelected: [Bool] = []
     @Published var ritualCostTotal: Int = 0
+    @Published var resetCalled = false
+//    @Published var ritualCostArray: [Int]
 //    @Published var trueRituals: [Rituals] = []
-//    @Published var jsonReader: RitualList
    
     init() {
         readFile()
+        ritualCostTotal = 0
     }
     
 
@@ -27,6 +31,7 @@ class RitualListViewModel: ObservableObject {
             if let jsonData = try? decoder.decode(RitualList.self, from: data) {
                 rituals = jsonData.rituals
                 
+                
 //                var i = 0
 //                for data in rituals {
 //                    rituals[i].cost = data.cost
@@ -36,9 +41,24 @@ class RitualListViewModel: ObservableObject {
             else {
                 debugPrint("Uh oh")
             }
+//            for spell in rituals {
+//                let isSelected = false
+//            }
         }
     }
     
+    func activatedRitual(item: RitualModel) {
+        ritualCostTotal += item.cost
+    }
+    
+    func deactivatedRitual(item: RitualModel) {
+        ritualCostTotal -= item.cost
+    }
+    
+    func newTurn() {
+//        ritualCostTotal = 0
+        resetCalled = true
+    }
 //    func getTotalCost() {
 //        ritualCostTotal = 0
 //        for selected in rituals {

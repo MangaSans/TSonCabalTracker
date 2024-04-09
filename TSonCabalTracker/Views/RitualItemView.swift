@@ -10,6 +10,8 @@ import SwiftUI
 struct RitualItemView: View {
     
     let item: RitualModel
+    @State var isSelected = false 
+    @EnvironmentObject var ritualListViewModel: RitualListViewModel
     
     var body: some View {
 //        Form {
@@ -19,7 +21,7 @@ struct RitualItemView: View {
                     Text(item.ritual)
                         .font(.title3)
                         .padding()
-                        .foregroundColor(Color.accentColor)
+                        .foregroundColor(isSelected ? Color.white : Color.yellow)
                         .shadow(color: Color.white, radius: 15, y: 5)
                         .fontWeight(Font.Weight.bold)
                     Spacer()
@@ -28,7 +30,7 @@ struct RitualItemView: View {
                         .multilineTextAlignment(.trailing)
                         .italic()
                         .padding()
-                        .foregroundColor(Color.white)
+                        .foregroundColor(isSelected ? Color.white : Color.yellow)
                         .bold()
                 }
                 
@@ -37,20 +39,26 @@ struct RitualItemView: View {
                 Text(item.description)
                     .font(.subheadline)
                     .padding()
+                    .foregroundStyle(isSelected ? Color.black : Color.white)
                 
             }
             .frame(maxWidth: .infinity)
-            .background(Color.gray)
+            .background(isSelected ? Color.gray : Color.indigo)
             .cornerRadius(10)
             .padding()
+            .onTapGesture {
+                isSelected.toggle()
+                isSelected ? ritualListViewModel.activatedRitual(item: item) : ritualListViewModel.deactivatedRitual(item: item)
+            }
 //        }
     }
 }
 
-struct RitualItemView_Previews: PreviewProvider {
-    static var item = RitualModel(ritualTitle: "ZAP HIM", ritualCost: 69, ritualDesc: "Get him good with a big zappy zap. hehe hoho")
-    
-    static var previews: some View {
-        RitualItemView(item: item)
-    }
-}
+//struct RitualItemView_Previews: PreviewProvider {
+//    static var item = RitualModel(ritualTitle: "ZAP HIM", ritualCost: 69, ritualDesc: "Get him good with a big zappy zap. hehe hoho")
+//    
+//    static var previews: some View {
+//        RitualItemView(item: item)
+//    }
+////    .environmentObject(RitualListViewModel())
+//}

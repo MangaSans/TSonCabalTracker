@@ -43,7 +43,7 @@ struct RitualModel: Decodable, Hashable {
         self.ritual = ritualTitle
         self.cost = ritualCost
         self.description = ritualDesc
-//        self.isSelected = isSelected
+//        self.isSelected = false
     }
 }
 
