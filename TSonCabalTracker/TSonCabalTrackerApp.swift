@@ -15,9 +15,9 @@ struct TSonCabalTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            
                 BottomBarViewer()
-            }
+            
             .environmentObject(listViewModel)
             .environmentObject(ritualViewModel)
         }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BottomBarViewer: View {
     
-    @EnvironmentObject var listViewModel: ListViewModel
-    @EnvironmentObject var ritualListViewModel: RitualListViewModel
+    @EnvironmentObject var listVM: ListViewModel
+    @EnvironmentObject var ritualVM: RitualListViewModel
     
     var body: some View {
         TabView {
@@ -21,11 +21,11 @@ struct BottomBarViewer: View {
             
             RitualListView()
                 .tabItem { Label("Ritual List", systemImage: "scroll") }
-            
-            SettingsView()
+            NavigationStack {
+                SettingsView()
+            }
                 .tabItem { Label("Settings", systemImage: "gearshape.2") }
         }
-//        .tabViewStyle(<#T##style: TabViewStyle##TabViewStyle#>)
     }
 }
 

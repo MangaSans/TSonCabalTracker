@@ -13,7 +13,6 @@ struct UnitModel: Identifiable, Codable, Hashable {
     let value: Int
     let isAlive: Bool
     let nickname: String?
-//    let knownSpells: [Spells]
     
     init(id: String = UUID().uuidString, title: String, value: Int, isAlive: Bool = true, nickname: String?) {
         self.id = id

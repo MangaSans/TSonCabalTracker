@@ -9,50 +9,51 @@ import SwiftUI
 
 struct RitualItemView: View {
     
-    let item: RitualModel
-    @State var isSelected = false 
+    @State var item: RitualClass
     @EnvironmentObject var ritualListViewModel: RitualListViewModel
     
     var body: some View {
-//        Form {
+        ZStack {
+            if item.doubleTap {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(maxWidth: 300, maxHeight: 300)
+                    .foregroundStyle(Color.darkerGrayer)
+                    .offset(x: -20, y: -20)
+                    .padding()
+            }
             VStack {
                 HStack {
-//                    Text("ZAP HIM")
-                    Text(item.ritual)
+                    Text(item.doubleTap ? "\(item.ritual.ritual) x2" : item.ritual.ritual)
                         .font(.title3)
                         .padding()
-                        .foregroundColor(isSelected ? Color.white : Color.yellow)
+                        .foregroundStyle(item.status == .freebie ? Color.gaussRifle : item.status == .active ? Color.white : Color.yellow)
                         .shadow(color: Color.white, radius: 15, y: 5)
                         .fontWeight(Font.Weight.bold)
+                    
+                    
                     Spacer()
-//                    Text("Cost: 4")
-                    Text("\(item.cost)")
+                    
+                    Text("\(item.ritual.cost)")
                         .multilineTextAlignment(.trailing)
                         .italic()
                         .padding()
-                        .foregroundColor(isSelected ? Color.white : Color.yellow)
                         .bold()
+                        .foregroundStyle(item.status == .freebie ? Color.gaussRifle : item.status == .active ? Color.white : Color.yellow)
                 }
                 
-//                Divider()
-//                Text("Get him good with a big zappy zap. hehe hoho")
-                Text(item.description)
+                Text(item.ritual.description)
                     .font(.subheadline)
                     .padding()
-                    .foregroundStyle(isSelected ? Color.black : Color.white)
-                
+                    .foregroundStyle(item.status == .freebie ? Color.white : item.status == .active ? Color.black : Color.white)
             }
             .frame(maxWidth: .infinity)
-            .background(isSelected ? Color.gray : Color.indigo)
+            .background(item.status == .freebie ? Color.screamerPink : item.status == .active ? Color.gray : Color.indigo)
             .cornerRadius(10)
             .padding()
-            .onTapGesture {
-                isSelected.toggle()
-                isSelected ? ritualListViewModel.activatedRitual(item: item) : ritualListViewModel.deactivatedRitual(item: item)
-            }
-//        }
+        }
     }
 }
+
 
 //struct RitualItemView_Previews: PreviewProvider {
 //    static var item = RitualModel(ritualTitle: "ZAP HIM", ritualCost: 69, ritualDesc: "Get him good with a big zappy zap. hehe hoho")

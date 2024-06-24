@@ -7,62 +7,50 @@
 
 import Foundation
 
-//let decoder = JSONDecoder()
-
 struct RitualList: Decodable {
     var rituals: [RitualModel]
 }
 
-//Bootleg ass way to get ids and a bool.
-//struct Rituals: Decodable, Identifiable {
-//    var ritual: String
-//    var cost: Int
-//    var description: String
-//    var id: String
-//    var isSelected: Bool
-//    
-//    init(ritual: String, cost: Int, description: String, id: String = UUID().uuidString, isSelected: Bool = false) {
-//        self.ritual = ritual
-//        self.cost = cost
-//        self.description = description
-//        self.id = id
-//        self.isSelected = isSelected
-//    }
-//}
-
-struct RitualModel: Decodable, Hashable {
+class RitualClass {
+    var ritual: RitualModel
+    var status: activity = activity.off
+    var identification: Int
+    var doubleTap = false
     
-//    let id: String
-    let ritual: String
-    let cost: Int
-    let description: String
-//    let isSelected: Bool
-    
-    init(ritualTitle: String, ritualCost: Int, ritualDesc: String) {
-//        self.id = id
-        self.ritual = ritualTitle
-        self.cost = ritualCost
-        self.description = ritualDesc
-//        self.isSelected = false
+    init(ritual: RitualModel, identification: Int) {
+        self.ritual = ritual
+        self.identification = identification
     }
 }
 
-//func parseJSON() {
-//    guard let path = Bundle.main.path(forResource: "data", ofType: "json")
-//    else {
-//        return
-//    }
-//
-//    if let url = URL(filePath: path) {
-//    }
-//    do {
-//        let jsonData = try Data(contentsOf: url)
-//        let decoded: RitualModel = try! JSONDecoder().decode(RitualModel.self, from: jsonData)
-//        print(decoded.description)
-//        }
-//        catch {
-//            print("Error: \(error)")
-//        }
-//
-//}
+struct RitualModel: Decodable, Hashable {
+    let ritual: String
+    let cost: Int
+    let description: String
+}
 
+enum activity {
+    case off
+    case active
+    case freebie
+}
+
+//Didn't need it, holding it for ref later.
+//extension Bundle {
+//    func decode<T: Decodable>(file:String) -> T {
+//        guard let url = self.url(forResource: file, withExtension: nil) else {
+//            fatalError("Could not find \(file) in the project.")
+//        }
+//        guard let data = try? Data(contentsOf: url) else {
+//            fatalError("Could not load \(file) in the project.")
+//        }
+//        
+//        let decoder = JSONDecoder()
+//        
+//        guard let loadedData = try? decoder.decode(T.self, from: data) else {
+//            fatalError("Could not decode \(file) in the project.")
+//        }
+//        
+//        return loadedData
+//    }
+//}
