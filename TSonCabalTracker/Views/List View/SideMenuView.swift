@@ -85,18 +85,9 @@ struct SideMenuView: View {
                 //Tap off view to close menu
             }
             .listStyle(.sidebar)
-            
-            
-//            .offset(x: -(menuWidth/5))
         }
         .frame(maxWidth: self.menuWidth)
         .animation(.default, value: menuWidth)
-//        .background(Color.white.opacity(0.5))
-        
-        
-//        .frame(width: self.menuWidth, height: .infinity, alignment: .leading)
-        
-        
     }
 }
 

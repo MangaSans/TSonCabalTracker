@@ -10,8 +10,6 @@ import CoreData
 
 struct ListView: View {
     
-//    let swipeToOpenSideMenu = UIGestureRecognizer(target: Self, action: <#T##Selector?#>)
-    
     @EnvironmentObject var listVM: ListViewModel
     @EnvironmentObject var ritualVM: RitualListViewModel
     @State private var showingSideBar: Bool = false {
@@ -24,6 +22,7 @@ struct ListView: View {
     
     @State private var boop = false
     
+    //Moving swipe buttons to a func for ease on the compiler.
     func swipeButtons(item: UnitData) -> some View {
         HStack {
             Button(action: {listVM.deleteItem(item: item)}, label: {
@@ -88,7 +87,6 @@ struct ListView: View {
                                     .frame(width: 270)
                                 Rectangle()
                                     .frame(width: geometry.size.width - 240)
-//                                    .foregroundStyle(Color.white.opacity(0.1))
                                     .opacity(0.01)
                                     .onTapGesture {
                                         showingSideBar = false
@@ -97,20 +95,28 @@ struct ListView: View {
                             }
                         }
                     }
+                    
+                    
                 }
                 
-
+            //Prompt to tell people to swipe on units.
             if(!listVM.tsonsUnits.isEmpty) {
                     Text("Swipe Left to Edit/Delete a unit.")
                         .foregroundStyle(Color.gray)
                         .padding(.bottom)
                     }
+            }
         }
-            
-//            .navigationBarItems(
-//                trailing: NavigationLink("Add a Unit", destination: AddItemView()))
-            
-        }
+        //Swipe gestures for opening/closing side bar.
+        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onEnded({ value in
+            if (value.translation.width > 0 && !showingSideBar) {
+                showingSideBar.toggle()
+            }
+            if (value.translation.width < 0 && showingSideBar) {
+                showingSideBar.toggle()
+            }
+        }))
+        
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink("Add a Unit", destination: AddItemView())
@@ -130,6 +136,7 @@ struct ListView: View {
                 })
             }
         }
+        
         .navigationTitle(
             listVM.cabalBonusPoints > 0 ?
             "Cabal Points: \(listVM.cabalTotalPoints) + \(listVM.cabalBonusPoints)"

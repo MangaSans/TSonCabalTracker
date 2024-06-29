@@ -294,13 +294,4 @@ class ListViewModel: ObservableObject {
             return "unitType"
         }
     }
-    
-    
-    //Add funcs for adding enchancements to units, overriding the previous holder of those enhancements, and add
-    //to the total points for the scrolls, add function to ritual screen for Lord of Forbidden Lore. Add checkbox
-    //at the top of ritual screen for Ahriman's ability (only once per battle), long press reset button on rituals
-    //screen for new game reset for that tickbox. Visuals for double tap on a ritual will add a "x2" to the ritual
-    //name, possible stack a second card effect on it. If one of the double taps are with Ahriman's ability, change
-    //on of the card's colors to Screamer Pink for visual confirmation. Make sure the enhancements cannot be added
-    //to Magnus or Ahriman, maybe the Tzaangor Shaman too?
 }

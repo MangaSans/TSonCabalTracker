@@ -14,12 +14,14 @@ struct RitualListView: View {
     
     var body: some View {
             VStack {
-                Toggle(isOn: $ritualListViewModel.freebieTriggered) {
-                    Text("Ahriman's Freebie triggered?")
-                        .foregroundStyle(Color.screamerPink)
-                        .bold()
+                HStack {
+                    Toggle(isOn: $ritualListViewModel.freebieTriggered) {
+                        Text("Ahriman's Freebie triggered?")
+                            .foregroundStyle(Color.screamerPink)
+                            .bold()
+                    }
+                    .padding()
                 }
-                .padding()
             
                 HStack {
                     VStack {
@@ -66,10 +68,6 @@ struct RitualListView: View {
                                         .bold()
                                         .foregroundStyle(Color.white)
                                 }
-                                //Why you no long press?
-//                                .onLongPressGesture(minimumDuration: 0.5) {
-//                                    ritualListViewModel.newGame()
-//                                }
                             })
                         }
                     }
