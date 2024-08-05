@@ -15,8 +15,8 @@ struct SideMenuView: View {
     var isAscending = false
     
     let menuWidth: CGFloat = 270
-    let babbleRange = 0 ... 3
-    let trophyRange = 0 ... 6
+    let babbleRange = 0 ... 20
+    let trophyRange = 0 ... 20
     
     var body: some View {
         

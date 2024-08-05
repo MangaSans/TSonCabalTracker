@@ -11,6 +11,14 @@ struct RitualList: Decodable {
     var rituals: [RitualModel]
 }
 
+enum phases {
+    case command 
+    case movement
+    case shooting
+    case charge
+    case combat
+}
+
 class RitualClass {
     var ritual: RitualModel
     var status: activity = activity.off

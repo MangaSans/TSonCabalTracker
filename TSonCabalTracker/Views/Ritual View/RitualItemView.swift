@@ -55,6 +55,7 @@ struct RitualItemView: View {
 }
 
 
+
 //struct RitualItemView_Previews: PreviewProvider {
 //    static var item = RitualModel(ritualTitle: "ZAP HIM", ritualCost: 69, ritualDesc: "Get him good with a big zappy zap. hehe hoho")
 //    

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0FE5EE2C49D0B40031CE02 /* ToggleCheckPlainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FE5ED2C49D0B40031CE02 /* ToggleCheckPlainView.swift */; };
 		1B1404A22B14100C008F8A0F /* RitualsTenth.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B1404A12B14100C008F8A0F /* RitualsTenth.json */; };
 		1B1C31102B23A68900755650 /* UnitData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C310E2B23A68900755650 /* UnitData.xcdatamodeld */; };
 		1B27EFBB2B9555F700230DF7 /* BottomBarViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27EFBA2B9555F700230DF7 /* BottomBarViewer.swift */; };
@@ -28,6 +29,7 @@
 		1B8EBDED2BE83D5B00706101 /* WhyNoAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EBDEC2BE83D5B00706101 /* WhyNoAdsView.swift */; };
 		1B8EBDEF2BE848B000706101 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EBDEE2BE848B000706101 /* AboutView.swift */; };
 		1B8EBDF42BE8809800706101 /* EditUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EBDF32BE8809800706101 /* EditUnitView.swift */; };
+		1BA30BB12C6044EC00756480 /* DuplicatePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA30BB02C6044EC00756480 /* DuplicatePopupView.swift */; };
 		1BBDF3F22C03FFA100F874AB /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBDF3F12C03FFA100F874AB /* SortModel.swift */; };
 		1BDA8E872BD49DD5000E2D43 /* StringHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA8E862BD49DD5000E2D43 /* StringHolder.swift */; };
 		1BDC770029AC3AE80005949B /* RitualListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC76FF29AC3AE80005949B /* RitualListView.swift */; };
@@ -55,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0FE5ED2C49D0B40031CE02 /* ToggleCheckPlainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCheckPlainView.swift; sourceTree = "<group>"; };
 		1B1404A12B14100C008F8A0F /* RitualsTenth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RitualsTenth.json; sourceTree = "<group>"; };
 		1B1C310F2B23A68900755650 /* UnitData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UnitData.xcdatamodel; sourceTree = "<group>"; };
 		1B27EFBA2B9555F700230DF7 /* BottomBarViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewer.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		1B8EBDEC2BE83D5B00706101 /* WhyNoAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyNoAdsView.swift; sourceTree = "<group>"; };
 		1B8EBDEE2BE848B000706101 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		1B8EBDF32BE8809800706101 /* EditUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUnitView.swift; sourceTree = "<group>"; };
+		1BA30BB02C6044EC00756480 /* DuplicatePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatePopupView.swift; sourceTree = "<group>"; };
 		1BBDF3F12C03FFA100F874AB /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		1BDA8E862BD49DD5000E2D43 /* StringHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHolder.swift; sourceTree = "<group>"; };
 		1BDC76FF29AC3AE80005949B /* RitualListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualListView.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				1B7B115029A963F000BC977C /* ListItemView.swift */,
 				1B7B115229A9653D00BC977C /* AddItemView.swift */,
 				1B8EBDF32BE8809800706101 /* EditUnitView.swift */,
+				1BA30BB02C6044EC00756480 /* DuplicatePopupView.swift */,
 			);
 			path = "List View";
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			children = (
 				1BDC76FF29AC3AE80005949B /* RitualListView.swift */,
 				1BDC770329AD96540005949B /* RitualItemView.swift */,
+				1B0FE5ED2C49D0B40031CE02 /* ToggleCheckPlainView.swift */,
 			);
 			path = "Ritual View";
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				1B71F7732BD2C3D00047FCD1 /* SharedViewModel.swift in Sources */,
 				1BDA8E872BD49DD5000E2D43 /* StringHolder.swift in Sources */,
 				1B1C31102B23A68900755650 /* UnitData.xcdatamodeld in Sources */,
+				1B0FE5EE2C49D0B40031CE02 /* ToggleCheckPlainView.swift in Sources */,
 				1B27EFBB2B9555F700230DF7 /* BottomBarViewer.swift in Sources */,
 				1B8EBDED2BE83D5B00706101 /* WhyNoAdsView.swift in Sources */,
 				1B7B115529A9663400BC977C /* UnitModel.swift in Sources */,
@@ -388,6 +395,7 @@
 				1B7B115129A963F000BC977C /* ListItemView.swift in Sources */,
 				1B7B112629A95F3F00BC977C /* ListView.swift in Sources */,
 				1B27EFBD2B997F1500230DF7 /* SideMenuView.swift in Sources */,
+				1BA30BB12C6044EC00756480 /* DuplicatePopupView.swift in Sources */,
 				1B8EBDEF2BE848B000706101 /* AboutView.swift in Sources */,
 				1B7B112429A95F3F00BC977C /* TSonCabalTrackerApp.swift in Sources */,
 				1BDC770229AC7BAC0005949B /* RitualModel.swift in Sources */,
@@ -568,7 +576,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = PeachesAndCream.TSonCabalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -600,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = PeachesAndCream.TSonCabalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

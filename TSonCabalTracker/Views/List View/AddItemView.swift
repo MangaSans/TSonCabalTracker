@@ -17,7 +17,9 @@ struct AddItemView: View {
     @State var tempLore: Bool = false
     @State var tempScroll: Bool = false
     
-    @State var itemToEdit: UnitData? 
+    
+    
+    @State var itemToEdit: UnitData?
     
     private var validUnit: Bool {
         //There's gotta be a cleaner way to do this.
@@ -35,6 +37,16 @@ struct AddItemView: View {
     
     @State var nickname: String = ""
     
+    func charaDuplicate(unit: UnitEnum) -> Bool {
+        if (unit == .magnus && listViewModel.magnusListed) {
+            return true
+        } else if (unit == .ahriman && listViewModel.ahrimanListed) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -42,6 +54,7 @@ struct AddItemView: View {
                     .underline()
                 Picker("Which Unit?", selection: $selectedUnit, content: {
                     ForEach(UnitEnum.allCases) { item in
+                        
                         Text("\(item.rawValue)")
                     }
                 })
@@ -99,13 +112,17 @@ struct AddItemView: View {
     }
     
     func saveButtonPressed() {
-        if nickname.emptySpace {
-            listViewModel.addItem(model: selectedUnit, nickname: nil, enhanced: tempEnhance)
+        if (!charaDuplicate(unit: selectedUnit)) {
+            if nickname.emptySpace {
+                listViewModel.addItem(model: selectedUnit, nickname: nil, enhanced: tempEnhance)
+            }
+            else {
+                listViewModel.addItem(model: selectedUnit, nickname: nickname, enhanced: tempEnhance)
+            }
+            listViewModel.duplicateAlert = false
+        } else {
+            listViewModel.duplicateAlert = true
         }
-        else {
-            listViewModel.addItem(model: selectedUnit, nickname: nickname, enhanced: tempEnhance)
-        }
-        
         presentationMode.wrappedValue.dismiss()
     }
     

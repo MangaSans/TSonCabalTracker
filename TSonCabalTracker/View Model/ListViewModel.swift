@@ -25,7 +25,14 @@ class ListViewModel: ObservableObject {
         }
     }
     
-    //Bools for checking living stuff
+    //Bool for duplicate alert on list screen.
+    @Published var duplicateAlert = false
+    
+    //Bools for Ahriman/Magnus is listed.
+    @Published var ahrimanListed = false
+    @Published var magnusListed = false
+    
+    //Bools for checking if special units are alive.
     @Published var ahrimanAlive = false
     @Published var loreAlive = false
     
@@ -83,9 +90,14 @@ class ListViewModel: ObservableObject {
     
     func getPointTotal() {
         cabalTotalPoints = 0
-        var foundAhriman = false
+//        var foundAhriman = false
         var foundLore = false
         for values in tsonsUnits {
+            
+            if values.unitType == UnitTypeString().magnus {
+                magnusListed = true
+                print("Magnus spotted in the list.")
+            }
             
             if values.loreHolder {
                 foundLore = true
@@ -93,8 +105,8 @@ class ListViewModel: ObservableObject {
                 else { loreAlive = false }
             }
             
-            if values.unitType! == "Ahriman" {
-                foundAhriman = true
+            if values.unitType! == UnitTypeString().ahriman {
+                ahrimanListed = true
                 if values.isAlive { ahrimanAlive = true }
                 else { ahrimanAlive = false }
             }
@@ -105,7 +117,7 @@ class ListViewModel: ObservableObject {
         getBonusPointsTotal()
         
         if !foundLore { loreAlive = false }
-        if !foundAhriman { ahrimanAlive = false }
+        if !ahrimanListed { ahrimanAlive = false }
     }
         
     func updateItem(item: UnitData) {
@@ -113,7 +125,7 @@ class ListViewModel: ObservableObject {
             saveUnits()
     }
     
-    func addItem(model: UnitEnum, nickname: String?, enhanced: EnhanceEnum, edit: Bool = false, unitToEdit: UnitData? = nil) {
+    func addItem(model: UnitEnum, nickname: String?, enhanced: EnhanceEnum, edit: Bool = false, unitToEdit: UnitData? = nil) {        
         
         var tempVal: Int
         var tempTitle: String
@@ -181,6 +193,7 @@ class ListViewModel: ObservableObject {
             newUnit.pointValue = Int16(tempVal)
             newUnit.loreHolder = tempLore
             newUnit.scrollHolder = tempScroll
+            
         } else {
             unitToEdit?.unitType = tempTitle
             unitToEdit?.pointValue = Int16(tempVal)
@@ -197,6 +210,16 @@ class ListViewModel: ObservableObject {
     func deleteItem(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
         let entity = tsonsUnits[index]
+        
+        //Check if that was Magnus or Ahriman
+        if (entity.unitType == UnitTypeString().magnus) {
+            magnusListed = false
+        }
+        
+        if (entity.unitType == UnitTypeString().ahriman) {
+            ahrimanListed = false
+        }
+        
         container.viewContext.delete(entity)
         saveUnits()
     }

@@ -11,8 +11,11 @@ class RitualListViewModel: ObservableObject {
     
     @Published var rituals: [RitualModel] = []
     @Published var ritualCostTotal: Int = 0
+    @Published var ritualCostPhase: Int = 0
     @Published var ritualClass: [RitualClass] = []
     @Published var freebieTriggered = false
+    @Published var phaseCounter: Int = 0
+    @Published var turnCounter: Int = 1
    
     init() {
         readFile()
@@ -44,17 +47,20 @@ class RitualListViewModel: ObservableObject {
     }
     
     func getTotalCost() {
-        ritualCostTotal = 0
+        ritualCostPhase = 0
         for selected in ritualClass {
             if (selected.status == .freebie && selected.doubleTap){
-                ritualCostTotal += selected.ritual.cost
+                ritualCostPhase += selected.ritual.cost
             } else {
-                ritualCostTotal += selected.status == .active ? (selected.doubleTap ? selected.ritual.cost * 2 : selected.ritual.cost) : 0
+                ritualCostPhase += selected.status == .active ? (selected.doubleTap ? selected.ritual.cost * 2 : selected.ritual.cost) : 0
             }
         }
     }
     
     func newTurn() {
+        ritualCostTotal = 0
+        phaseCounter = 0
+        turnCounter+=1
         for selected in ritualClass {
             selected.status = .off
             selected.doubleTap = false
@@ -87,6 +93,7 @@ class RitualListViewModel: ObservableObject {
     }
     
     func newGame() {
+        turnCounter = 1
         for item in ritualClass {
             item.status = .off
             item.doubleTap = false
@@ -100,6 +107,24 @@ class RitualListViewModel: ObservableObject {
             select.doubleTap = false
         }
         item.doubleTap.toggle()
+        getTotalCost()
+    }
+    
+    func nextPhase() {
+        phaseCounter+=1
+        if (phaseCounter == 5) {
+            newTurn()
+        } else {
+            ritualCostTotal+=ritualCostPhase
+            newPhase()
+        }
+    }
+    
+    func newPhase() {
+        for item in ritualClass {
+            item.status = .off
+            item.doubleTap = false
+        }
         getTotalCost()
     }
 }

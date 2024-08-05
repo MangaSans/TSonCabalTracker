@@ -22,6 +22,9 @@ struct ListView: View {
     
     @State private var boop = false
     
+    //Pop up timer to auto close
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    
     //Moving swipe buttons to a func for ease on the compiler.
     func swipeButtons(item: UnitData) -> some View {
         HStack {
@@ -69,7 +72,10 @@ struct ListView: View {
                                 ListItemView(item: item)
                             }
                             .swipeActions {
-                                swipeButtons(item: item)
+                                if (!showingSideBar) {
+                                    swipeButtons(item: item)
+                                }
+                                
                             }
                         }
                     }
@@ -91,12 +97,27 @@ struct ListView: View {
                                     .onTapGesture {
                                         showingSideBar = false
                                     }
-                                    .ignoresSafeArea()
+//                                    .ignoresSafeArea()
                             }
                         }
                     }
                     
-                    
+                    if listVM.duplicateAlert {
+                        ZStack{
+                            DuplicatePopupView()
+                                .onReceive(timer, perform: { _ in
+                                    listVM.duplicateAlert = false
+                                })
+                            Button(action: {
+                                listVM.duplicateAlert = false
+                            }, label: {
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .ignoresSafeArea()
+                                    .foregroundStyle(Color.clear.opacity(0.0))
+                                    
+                            })
+                        }
+                    }
                 }
                 
             //Prompt to tell people to swipe on units.
@@ -107,15 +128,15 @@ struct ListView: View {
                     }
             }
         }
-        //Swipe gestures for opening/closing side bar.
-        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onEnded({ value in
-            if (value.translation.width > 0 && !showingSideBar) {
-                showingSideBar.toggle()
-            }
-            if (value.translation.width < 0 && showingSideBar) {
-                showingSideBar.toggle()
-            }
-        }))
+        //Swipe gestures for opening/closing side bar. NEED TO FIND A DIFFERENT METHOD
+//        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local).onEnded({ value in
+//            if (value.translation.width > 0 && !showingSideBar) {
+//                showingSideBar.toggle()
+//            }
+//            if (value.translation.width < 0 && showingSideBar) {
+//                showingSideBar.toggle()
+//            }
+//        }))
         
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
