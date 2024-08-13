@@ -48,7 +48,10 @@ class ListViewModel: ObservableObject {
         }
     }
     
+//    Will need to start playing with background threads for saving.
+//    Currently, doesn't "actually" save anything with this method. (Probably didn't do it right)
     let container: NSPersistentContainer
+//    let backgroundContext: NSManagedObjectContext
     let dataFileName: String = "UnitData"
     
     
@@ -61,7 +64,7 @@ class ListViewModel: ObservableObject {
                 print("Core Data Loaded.")
             }
         }
-        
+//        backgroundContext = container.newBackgroundContext()
         getItems()
     }
     
@@ -72,6 +75,7 @@ class ListViewModel: ObservableObject {
         request.sortDescriptors = [pointSort]
         do {
             try tsonsUnits = container.viewContext.fetch(request)
+            print("Request Complete.")
         } catch let error {
             print("Error loading data. \(error)")
         }
@@ -82,6 +86,8 @@ class ListViewModel: ObservableObject {
     func saveUnits() {
         do {
             try container.viewContext.save()
+//            try backgroundContext.save()
+            print("Saved list data.")
             getItems()
         } catch let error {
             print("Error saving data. \(error)")

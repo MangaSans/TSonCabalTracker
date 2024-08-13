@@ -57,7 +57,8 @@ struct RitualItemView: View {
 
 
 //struct RitualItemView_Previews: PreviewProvider {
-//    static var item = RitualModel(ritualTitle: "ZAP HIM", ritualCost: 69, ritualDesc: "Get him good with a big zappy zap. hehe hoho")
+//    let ritualPreview = RitualModel(ritual: "ZAP HIM", cost: 69, description: "Get him good with a big zappy zap. hehe hoho")
+//    let item = RitualClass(ritual: item, identification: 1)
 //    
 //    static var previews: some View {
 //        RitualItemView(item: item)

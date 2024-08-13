@@ -16,6 +16,7 @@ class RitualListViewModel: ObservableObject {
     @Published var freebieTriggered = false
     @Published var phaseCounter: Int = 0
     @Published var turnCounter: Int = 1
+//    @Published var tutorialTextCleared: Bool = false
    
     init() {
         readFile()
@@ -38,10 +39,11 @@ class RitualListViewModel: ObservableObject {
                     print("\(ritualClass[temp].ritual.ritual)")
                     temp+=1
                 }
+                print("Ritual list loaded up.")
                 
             }
             else {
-                debugPrint("Uh oh")
+                debugPrint("Error loading ritual list.")
             }
         }
     }

@@ -30,6 +30,7 @@
 		1B8EBDEF2BE848B000706101 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EBDEE2BE848B000706101 /* AboutView.swift */; };
 		1B8EBDF42BE8809800706101 /* EditUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8EBDF32BE8809800706101 /* EditUnitView.swift */; };
 		1BA30BB12C6044EC00756480 /* DuplicatePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA30BB02C6044EC00756480 /* DuplicatePopupView.swift */; };
+		1BA30BB32C66AFEC00756480 /* RitualPlaceholderTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA30BB22C66AFEC00756480 /* RitualPlaceholderTab.swift */; };
 		1BBDF3F22C03FFA100F874AB /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBDF3F12C03FFA100F874AB /* SortModel.swift */; };
 		1BDA8E872BD49DD5000E2D43 /* StringHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA8E862BD49DD5000E2D43 /* StringHolder.swift */; };
 		1BDC770029AC3AE80005949B /* RitualListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDC76FF29AC3AE80005949B /* RitualListView.swift */; };
@@ -83,6 +84,7 @@
 		1B8EBDEE2BE848B000706101 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		1B8EBDF32BE8809800706101 /* EditUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUnitView.swift; sourceTree = "<group>"; };
 		1BA30BB02C6044EC00756480 /* DuplicatePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicatePopupView.swift; sourceTree = "<group>"; };
+		1BA30BB22C66AFEC00756480 /* RitualPlaceholderTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualPlaceholderTab.swift; sourceTree = "<group>"; };
 		1BBDF3F12C03FFA100F874AB /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		1BDA8E862BD49DD5000E2D43 /* StringHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHolder.swift; sourceTree = "<group>"; };
 		1BDC76FF29AC3AE80005949B /* RitualListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualListView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				1BDC76FF29AC3AE80005949B /* RitualListView.swift */,
 				1BDC770329AD96540005949B /* RitualItemView.swift */,
 				1B0FE5ED2C49D0B40031CE02 /* ToggleCheckPlainView.swift */,
+				1BA30BB22C66AFEC00756480 /* RitualPlaceholderTab.swift */,
 			);
 			path = "Ritual View";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				1B1C31102B23A68900755650 /* UnitData.xcdatamodeld in Sources */,
 				1B0FE5EE2C49D0B40031CE02 /* ToggleCheckPlainView.swift in Sources */,
 				1B27EFBB2B9555F700230DF7 /* BottomBarViewer.swift in Sources */,
+				1BA30BB32C66AFEC00756480 /* RitualPlaceholderTab.swift in Sources */,
 				1B8EBDED2BE83D5B00706101 /* WhyNoAdsView.swift in Sources */,
 				1B7B115529A9663400BC977C /* UnitModel.swift in Sources */,
 				1B7B115329A9653D00BC977C /* AddItemView.swift in Sources */,
