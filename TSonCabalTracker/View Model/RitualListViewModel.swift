@@ -101,6 +101,7 @@ class RitualListViewModel: ObservableObject {
             item.doubleTap = false
         }
         freebieTriggered = false
+        phaseCounter = 0
         getTotalCost()
     }
     
