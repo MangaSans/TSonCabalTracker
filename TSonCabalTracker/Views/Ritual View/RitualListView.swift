@@ -70,6 +70,7 @@ struct RitualListView: View {
         }
     }
     
+    //Phase Counter with Next Phase Button
     func topBar() -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10.0)
@@ -131,6 +132,7 @@ struct RitualListView: View {
         }
     }
     
+    //MARK: New Turn Button/Points Counters/Ahriman Toggle
     var body: some View {
             VStack {
                 topBar()
@@ -143,6 +145,7 @@ struct RitualListView: View {
                             HStack {
                                 Button(action: {
                                     ritualVM.newTurn()
+                                    listVM.resetBonusPoints()
                                 }, label: {
                                     ZStack{
                                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
@@ -217,6 +220,8 @@ struct RitualListView: View {
                 
 //              MARK: Actual List
                 List {
+                    
+                    //Tutorial WIP, need to use UserPerf saves so it doesn't keep popping back up.
 //                    if (!ritualVM.tutorialTextCleared) {
 //                        HStack {
 //                            Text("Swipe left on a ritual for Ahriman's/Lord of Forbidden Lore's Ability.")

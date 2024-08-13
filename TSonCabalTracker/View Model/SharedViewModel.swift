@@ -9,7 +9,6 @@ import Foundation
 
 class SharedViewModel: ObservableObject {
     
-    var ahrimanAlive: Bool = false
-    var loreAlive: Bool = false
+    
     
 }

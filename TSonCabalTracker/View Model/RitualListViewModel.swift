@@ -95,13 +95,9 @@ class RitualListViewModel: ObservableObject {
     }
     
     func newGame() {
+        newTurn()
         turnCounter = 1
-        for item in ritualClass {
-            item.status = .off
-            item.doubleTap = false
-        }
         freebieTriggered = false
-        phaseCounter = 0
         getTotalCost()
     }
     
