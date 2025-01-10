@@ -17,6 +17,7 @@ struct TSonCabalTrackerApp: App {
         WindowGroup {
             
                 BottomBarViewer()
+//            ContainerView()
             
             .environmentObject(listViewModel)
             .environmentObject(ritualViewModel)

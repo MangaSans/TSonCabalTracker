@@ -31,6 +31,7 @@ class ListViewModel: ObservableObject {
     //Bools for Ahriman/Magnus is listed.
     @Published var ahrimanListed = false
     @Published var magnusListed = false
+    @Published var loreListed = false
     
     //Bools for checking if special units are alive.
     @Published var ahrimanAlive = false
@@ -76,11 +77,10 @@ class ListViewModel: ObservableObject {
         do {
             try tsonsUnits = container.viewContext.fetch(request)
             print("Request Complete.")
+            getPointTotal()
         } catch let error {
             print("Error loading data. \(error)")
         }
-        
-        getPointTotal()
     }
     
     func saveUnits() {
@@ -96,8 +96,8 @@ class ListViewModel: ObservableObject {
     
     func getPointTotal() {
         cabalTotalPoints = 0
-//        var foundAhriman = false
-        var foundLore = false
+        ahrimanListed = false
+        loreListed = false
         for values in tsonsUnits {
             
             if values.unitType == UnitTypeString().magnus {
@@ -106,7 +106,7 @@ class ListViewModel: ObservableObject {
             }
             
             if values.loreHolder {
-                foundLore = true
+                loreListed = true
                 if values.isAlive { loreAlive = true }
                 else { loreAlive = false }
             }
@@ -119,11 +119,13 @@ class ListViewModel: ObservableObject {
             
             cabalTotalPoints += values.isAlive ? (values.scrollHolder ? Int(values.pointValue) + 1 : Int(values.pointValue)) : 0
         }
-        print("Ahriman is \(ahrimanAlive) and the Lore Lord is \(loreAlive).")
-        getBonusPointsTotal()
         
-        if !foundLore { loreAlive = false }
+        if !loreListed { loreAlive = false }
         if !ahrimanListed { ahrimanAlive = false }
+        
+        print("Ahriman in the list?: \(ahrimanListed) Alive?: \(ahrimanAlive).")
+        print("Lord of Forbidden Lore is in the list?: \(loreListed). Alive?: \(loreAlive).")
+        getBonusPointsTotal()
     }
         
     func updateItem(item: UnitData) {

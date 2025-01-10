@@ -48,20 +48,6 @@ struct ListView: View {
         NavigationStack {
             VStack {
                 ZStack {
-                    //MARK: Empty List Text
-                    if(listVM.tsonsUnits.isEmpty) {
-                        VStack {
-                            Text("All is dust...")
-                                .bold()
-                                .italic()
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                .foregroundStyle(Color.gray)
-                                .offset(x: showingSideBar ? CGFloat(200) : 0)
-                            Text("Add a unit up above.")
-                                .foregroundStyle(Color.gray)
-                                .offset(x: showingSideBar ? CGFloat(200) : 0)
-                        }
-                    }
                     //MARK: Actual List
                     List {
                         ForEach(listVM.tsonsUnits) { item in
@@ -83,6 +69,20 @@ struct ListView: View {
                     .listStyle (
                         PlainListStyle()
                     )
+                    //MARK: Empty List Text
+                    if(listVM.tsonsUnits.isEmpty) {
+                        VStack {
+                            Text("All is dust...")
+                                .bold()
+                                .italic()
+                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                .foregroundStyle(Color.gray)
+                                .offset(x: showingSideBar ? CGFloat(200) : 0)
+                            Text("Add a unit up above.")
+                                .foregroundStyle(Color.gray)
+                                .offset(x: showingSideBar ? CGFloat(200) : 0)
+                        }
+                    }
                     
                     //MARK: Side Bar
                     if (showingSideBar) {

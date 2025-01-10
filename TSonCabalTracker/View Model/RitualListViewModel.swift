@@ -9,6 +9,8 @@ import Foundation
 
 class RitualListViewModel: ObservableObject {
     
+    
+//    var codexSelected: CodexVersionEnum
     @Published var rituals: [RitualModel] = []
     @Published var ritualCostTotal: Int = 0
     @Published var ritualCostPhase: Int = 0
@@ -47,6 +49,8 @@ class RitualListViewModel: ObservableObject {
             }
         }
     }
+    
+//    func getSelectedCodex(selected: ) ->
     
     func getTotalCost() {
         ritualCostPhase = 0

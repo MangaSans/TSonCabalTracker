@@ -189,6 +189,7 @@ struct RitualListView: View {
                             
                             Text("\(ritualVM.ritualCostPhase)")
                         }
+
                         
                         
                         //TOTAL COST TEXT
@@ -212,9 +213,9 @@ struct RitualListView: View {
                         
 //                        .padding(.vertical)
 
-                        if (listVM.ahrimanAlive) {
-                            ahrimanToggle()
-                        }
+//                        if (listVM.ahrimanAlive) {
+//                            ahrimanToggle()
+//                        }
                     }
                 }
                 
@@ -242,6 +243,13 @@ struct RitualListView: View {
 //                        .cornerRadius(10.0)
 //                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/, value: ritualVM.tutorialTextCleared)
 //                    }
+                    
+                    if(listVM.ahrimanAlive || listVM.loreAlive) {
+                        Text("Swipe left to use Ahriman's or Lord of Forbidden Lore's ability on a ritual.")
+                            .font(.footnote)
+                            .multilineTextAlignment(.center)
+                            .padding(.leading)
+                    }
                     
                     ForEach(ritualVM.ritualClass, id: \.self.ritual.ritual)  { item in
                         ZStack {
@@ -278,6 +286,10 @@ struct RitualListView: View {
                     }
                 }
                 .padding(.bottom)
+//                
+                RitualUnitStatusBar()
+                    .padding(.bottom)
+                    
             }
         }
     }
