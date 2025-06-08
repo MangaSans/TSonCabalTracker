@@ -84,6 +84,7 @@
 		1B3938F82D093B85008AFEE3 /* onboarding2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboarding2.png; sourceTree = "<group>"; };
 		1B3938F92D093B85008AFEE3 /* onboarding3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onboarding3.png; sourceTree = "<group>"; };
 		1B4281DE2CBF1E920080D4B0 /* CodexVersionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexVersionEnum.swift; sourceTree = "<group>"; };
+		1B67FE852DF4FE69004A1F64 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1B6F82362BAF69040013D292 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1B71F7722BD2C3D00047FCD1 /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		1B7B112029A95F3F00BC977C /* TSonCabalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSonCabalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +146,7 @@
 		1B7B111729A95F3F00BC977C = {
 			isa = PBXGroup;
 			children = (
+				1B67FE852DF4FE69004A1F64 /* .gitignore */,
 				1B7B112229A95F3F00BC977C /* TSonCabalTracker */,
 				1B7B113329A95F4000BC977C /* TSonCabalTrackerTests */,
 				1B7B113D29A95F4000BC977C /* TSonCabalTrackerUITests */,
@@ -629,7 +631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = PeachesAndCream.TSonCabalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -664,7 +666,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = PeachesAndCream.TSonCabalTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
