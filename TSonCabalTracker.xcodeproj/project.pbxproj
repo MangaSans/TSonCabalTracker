@@ -102,6 +102,7 @@
 		1B7B115429A9663400BC977C /* UnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitModel.swift; sourceTree = "<group>"; };
 		1B7B115629A984DA00BC977C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		1B7B115829A9AFF000BC977C /* UnitSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectionModel.swift; sourceTree = "<group>"; };
+		1B8AAD532DF87E6E00689672 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1B8EBDEC2BE83D5B00706101 /* WhyNoAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyNoAdsView.swift; sourceTree = "<group>"; };
 		1B8EBDEE2BE848B000706101 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		1B8EBDF32BE8809800706101 /* EditUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUnitView.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1B67FE852DF4FE69004A1F64 /* .gitignore */,
+				1B8AAD532DF87E6E00689672 /* README.md */,
 				1B7B112229A95F3F00BC977C /* TSonCabalTracker */,
 				1B7B113329A95F4000BC977C /* TSonCabalTrackerTests */,
 				1B7B113D29A95F4000BC977C /* TSonCabalTrackerUITests */,
@@ -614,7 +616,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TSonCabalTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = UCY4FM8G36;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TSonCabalTracker/Info.plist;
@@ -649,7 +651,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TSonCabalTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = UCY4FM8G36;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TSonCabalTracker/Info.plist;
